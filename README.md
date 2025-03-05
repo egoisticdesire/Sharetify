@@ -4,11 +4,8 @@
 
 ## Описание
 
-Когда я слушаю музыку в Spotify, моя девушка периодически просит поделиться с ней треком, который играет 😁
-
-В какой-то момент мне надоело каждый раз отвлекаться, открывать окно __Spotify__ и совершать еще тонну действий, чтобы
-поделиться треком. Сначала это была реализация исключительно через __Shortcuts.app__ на __MacOS__, но такое решение не
-позволяло отправлять личные сообщения — только через __Telegram-бота__. Это не слишком удобно для меня.
+Сначала это была реализация исключительно через __Shortcuts.app__ на __MacOS__, но такое решение не позволяло отправлять
+личные сообщения — только через __Telegram-бота__. Это не слишком удобно для меня.
 Поэтому было реализовано решение через связку __Python__, __AppleScript__ и __Shortcuts.app__.
 
 - Скрипт получает текущий трек в __Spotify__ и отправляет его в __Telegram__ указанному пользователю в виде ссылки;
@@ -19,7 +16,8 @@
 
 1. Скачать файлы из этого репозитория;
 2. Получить `APP__TELEGRAM__API_ID` и `APP__TELEGRAM__API_HASH` от [Telegram](https://my.telegram.org);
-3. Получить `APP__TELEGRAM__TARGET_USER_ID` пользователя, которому нужно отправить трек (например, через `@getmyid_bot` в _
+3. Получить `APP__TELEGRAM__TARGET_USER_ID` пользователя, которому нужно отправить трек (например, через `@getmyid_bot`
+   в _
    _Telegram__);
 4. Переименовать скрытый файл __.env.example__ в __.env__: \
    `cd auto_sharing_spotify && mv .env.example .env`
@@ -64,11 +62,8 @@
 
 ## Description
 
-When I listen to music on __Spotify__, my girlfriend occasionally asks me to share the track that's currently playing 😁
-
-At some point, I got tired of constantly getting distracted, opening the __Spotify__ window, and performing a bunch of
-actions just to share a track. Initially, I implemented this using __Shortcuts.app__ on __macOS__, but that solution
-only allowed sending messages via a __Telegram__ bot, not as personal messages.
+Initially, I implemented this using __Shortcuts.app__ on __macOS__, but that solution only allowed sending messages via
+a __Telegram__ bot, not as personal messages.
 That was inconvenient for me, so I created a solution using __Python__, __AppleScript__ and __Shortcuts.app__.
 
 - The script fetches the currently playing track from __Spotify__ and sends it to a specified __Telegram__ user as a
@@ -83,7 +78,8 @@ That was inconvenient for me, so I created a solution using __Python__, __AppleS
 3. Get the `APP__TELEGRAM__TARGET_USER_ID` of the recipient (for example, using `@getmyid_bot` in __Telegram__).
 4. Rename the hidden file __.env.example__ to __.env__: \
    `cd auto_sharing_spotify && mv .env.example .env`
-5. Fill in the `APP__TELEGRAM__API_ID`, `APP__TELEGRAM__API_HASH`, and `APP__TELEGRAM__TARGET_USER_ID` fields in the __.env__ file:
+5. Fill in the `APP__TELEGRAM__API_ID`, `APP__TELEGRAM__API_HASH`, and `APP__TELEGRAM__TARGET_USER_ID` fields in the _
+   _.env__ file:
     - By default, messages are sent in English. To change to Russian, set `APP__SYSTEM__LANGUAGE=ru`
 6. Create and activate a virtual environment: \
    `python -m venv .venv && source .venv/bin/activate`
