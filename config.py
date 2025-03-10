@@ -1,4 +1,7 @@
-from pydantic import BaseModel
+import sys
+import webbrowser
+
+from pydantic import BaseModel, ValidationError
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -38,4 +41,17 @@ class Settings(BaseSettings):
     )
 
 
-settings = Settings()  # noqa
+try:
+    settings = Settings()  # noqa
+except ValidationError as e:
+    print(
+        "Ошибка конфигурации: отсутствуют необходимые переменные окружения.",
+        "Configuration Error: there are no necessary variables of the environment.",
+        e,
+        sep="\n",
+    )
+    if "target_user_id" in str(e):
+        webbrowser.open("https://t.me/getmyid_bot")
+    else:
+        webbrowser.open("https://my.telegram.org")
+    sys.exit(1)
