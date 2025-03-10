@@ -1,8 +1,10 @@
-# Auto sharing Spotify track to Telegram
+# Sharetify
 
 [English](#Description)
 
 ## Описание
+
+### Sharetify — это инструмент для быстрой отправки текущего трека из Spotify в Telegram. Запусти скрипт либо используй Siri (в __Shortcuts.app__) или горячие клавиши (в __Shortcuts.app__), и Sharetify мгновенно поделится тем, что ты слушаешь.
 
 Сначала это была реализация исключительно через __Shortcuts.app__ на __MacOS__, но такое решение не позволяло отправлять
 личные сообщения — только через __Telegram-бота__. Это не слишком удобно для меня.
@@ -15,10 +17,10 @@
 ## Использование
 
 1. Скачать файлы из этого репозитория;
-2. Получить `APP__TELEGRAM__API_ID` и `APP__TELEGRAM__API_HASH` от [Telegram](https://my.telegram.org);
-3. Получить `APP__TELEGRAM__TARGET_USER_ID` пользователя, которому нужно отправить трек (например, через `@getmyid_bot`
-   в _
-   _Telegram__);
+2. Получить `APP__TELEGRAM__API_ID` и `APP__TELEGRAM__API_HASH` от [Telegram](https://my.telegram.org) _(при первом
+   запуске откроется автоматически)_;
+3. Получить `APP__TELEGRAM__TARGET_USER_ID` пользователя, которому нужно отправить трек (например,
+   через [@getmyid_bot](https://t.me/getmyid_bot) _(не имею к нему никакого отношения)_ в __Telegram__);
 4. Переименовать скрытый файл __.env.example__ в __.env__: \
    `cd auto_sharing_spotify && mv .env.example .env`
 5. Заполнить `APP__TELEGRAM__API_ID`, `APP__TELEGRAM__API_HASH` и `APP__TELEGRAM__TARGET_USER_ID` в __.env__:
@@ -62,6 +64,8 @@
 
 ## Description
 
+### Sharetify is a tool for quickly sharing your current Spotify track to Telegram. Run the script or use Siri (in __Shortcuts.app__) or hotkey (in __Shortcuts.app__), and Sharetify will instantly send what you're listening to.
+
 Initially, I implemented this using __Shortcuts.app__ on __macOS__, but that solution only allowed sending messages via
 a __Telegram__ bot, not as personal messages.
 That was inconvenient for me, so I created a solution using __Python__, __AppleScript__ and __Shortcuts.app__.
@@ -74,8 +78,10 @@ That was inconvenient for me, so I created a solution using __Python__, __AppleS
 ## Usage
 
 1. Download the files from this repository.
-2. Get your `APP__TELEGRAM__API_ID` and `APP__TELEGRAM__API_HASH` from [Telegram](https://my.telegram.org).
-3. Get the `APP__TELEGRAM__TARGET_USER_ID` of the recipient (for example, using `@getmyid_bot` in __Telegram__).
+2. Get your `APP__TELEGRAM__API_ID` and `APP__TELEGRAM__API_HASH` from [Telegram](https://my.telegram.org) _(at the
+   first launch will open automatically)_.
+3. Get the `APP__TELEGRAM__TARGET_USER_ID` of the recipient (for example, using [@getmyid_bot](https://t.me/getmyid_bot)
+   _(I have nothing to do with him)_ in __Telegram__).
 4. Rename the hidden file __.env.example__ to __.env__: \
    `cd auto_sharing_spotify && mv .env.example .env`
 5. Fill in the `APP__TELEGRAM__API_ID`, `APP__TELEGRAM__API_HASH`, and `APP__TELEGRAM__TARGET_USER_ID` fields in the _
