@@ -1,6 +1,6 @@
 import logging
 import subprocess
-from typing import Optional, Tuple
+import sys
 
 from telethon import errors as telethon_errors
 from telethon.sync import TelegramClient
@@ -14,7 +14,7 @@ logging.basicConfig(
 )
 
 
-def get_spotify_track() -> Tuple[Optional[str], Optional[str]]:
+def get_spotify_track() -> tuple[str | None, str | None]:
     """
     Gets information about the current track in Spotify.
 
@@ -69,7 +69,6 @@ def send_track() -> None:
         track_url, track_title = get_spotify_track()
         if not track_url:
             logging.error("No track to send.")
-            print("ERROR")  # Report Shortcuts.app that the track is not played
             return
 
         with TelegramClient(
@@ -88,17 +87,16 @@ def send_track() -> None:
             )
 
             client.send_message(
-                entity=settings.telegram.target_user_id,
+                entity=settings.telegram.target_user,
                 message=message,
                 parse_mode=settings.telegram.parse_mode,
                 link_preview=settings.telegram.link_preview,
             )
             logging.info("Track sent successfully!")
-            print("OK")  # Report Shortcuts.app that everything is successful
 
     except (ConnectionError, ValueError, OSError, telethon_errors.RPCError) as e:
-        logging.error("Error while sending track: %s", str(e))
-        print("ERROR")  # Report Shortcuts.app that the track is not played
+        error_message = f"Configuration error: {str(e).split(" - ")[-1].strip()}"
+        sys.exit(error_message)
 
 
 if __name__ == "__main__":

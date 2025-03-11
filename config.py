@@ -1,7 +1,7 @@
 import sys
 import webbrowser
 
-from pydantic import BaseModel, ValidationError
+from pydantic import BaseModel, field_validator, ValidationError
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -22,10 +22,16 @@ class SpotifySettings(BaseModel):
 class TelegramSettings(BaseModel):
     api_id: int
     api_hash: str
-    target_user_id: int
+    target_user: int | str
     session: str = "session"
     parse_mode: str = "html"
     link_preview: bool = False
+
+    @field_validator("target_user", mode="before")
+    def validate_target_user(cls, v):
+        if v and v.startswith("@"):
+            return v
+        return int(v)
 
 
 class Settings(BaseSettings):
@@ -44,14 +50,10 @@ class Settings(BaseSettings):
 try:
     settings = Settings()  # noqa
 except ValidationError as e:
-    print(
-        "Ошибка конфигурации: отсутствуют необходимые переменные окружения.",
-        "Configuration Error: there are no necessary variables of the environment.",
-        e,
-        sep="\n",
-    )
-    if "target_user_id" in str(e):
-        webbrowser.open("https://t.me/getmyid_bot")
+    # print(e)
+    if "target_user" in str(e):
+        message = "You need to specify the user ID or username in the environment"
     else:
+        message = "You need to specify the API ID and API Hash in the environment"
         webbrowser.open("https://my.telegram.org")
-    sys.exit(1)
+    sys.exit(f"Configuration error: {message}")
