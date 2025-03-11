@@ -13,7 +13,7 @@
 ## Использование
 
 1. Скачать файлы из этого репозитория;
-2. Получить `APP__TELEGRAM__API_ID` и `APP__TELEGRAM__API_HASH` от [Telegram](https://my.telegram.org) _(при первом запуске откроется автоматически)_;
+2. Получить `API_ID` и `API_HASH` от [Telegram](https://my.telegram.org) _(при первом запуске откроется автоматически)_;
 3. Переименовать скрытый файл __.env.example__ в __.env__: \
    `cd Sharetify && mv .env.example .env`
 4. Заполнить `APP__TELEGRAM__API_ID`, `APP__TELEGRAM__API_HASH` и `APP__TELEGRAM__TARGET_USER` в __.env__:
@@ -65,7 +65,7 @@
 ## Usage
 
 1. Download the files from this repository.
-2. Get your `APP__TELEGRAM__API_ID` and `APP__TELEGRAM__API_HASH` from [Telegram](https://my.telegram.org) _(at the first launch will open automatically)_.
+2. Get your `API_ID` and `API_HASH` from [Telegram](https://my.telegram.org) _(at the first launch will open automatically)_.
 3. Rename the hidden file __.env.example__ to __.env__: \
    `cd Sharetify && mv .env.example .env`
 4. Fill in the `APP__TELEGRAM__API_ID`, `APP__TELEGRAM__API_HASH`, and `APP__TELEGRAM__TARGET_USER` fields in the __.env__ file:
