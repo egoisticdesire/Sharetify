@@ -19,7 +19,7 @@ def get_spotify_track() -> tuple[str | None, str | None]:
     Gets information about the current track in Spotify.
 
     Returns:
-        Tuple[Optional[str], Optional[str]]: Tuple of track URL and title.
+        Tuple of track URL and title.
         If the track is not found, or an error occurs, returns (None, None).
     """
     apple_script = """
@@ -63,7 +63,6 @@ def get_spotify_track() -> tuple[str | None, str | None]:
 def send_track() -> None:
     """
     Sends information about the current track to Telegram.
-    Prints “OK” if successful and “ERROR” if an error occurs.
     """
     try:
         track_url, track_title = get_spotify_track()
