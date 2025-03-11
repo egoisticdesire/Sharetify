@@ -80,7 +80,7 @@ def send_track() -> None:
                 if "ru" in settings.system.language.lower()
                 else settings.spotify.en_message
             )
-            message += settings.spotify.track_prefix.format(
+            message += settings.spotify.link.format(
                 url=track_url,
                 title=track_title,
             )

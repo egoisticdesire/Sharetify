@@ -1,22 +1,25 @@
 import sys
 import webbrowser
+from pathlib import Path
 
 from pydantic import BaseModel, field_validator, ValidationError
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+BASE_DIR = Path(__file__).resolve().parent
+
 
 class SystemSettings(BaseModel):
     debug: bool = False
-    language: str = "en"
     logging_format: str = "%(asctime)s - %(name)s - %(levelname)-7s - %(message)s"
     logging_date_format: str = "%Y-%m-%d %H:%M:%S"
+    language: str = "en"
 
 
 class SpotifySettings(BaseModel):
     url: str = "https://open.spotify.com/track/"
     ru_message: str = "🎵 В <b>Spotify</b> сейчас играет:\n"
     en_message: str = "🎵 <b>Spotify</b> is playing now:\n"
-    track_prefix: str = '🔥 <b><a href="{url}">{title}</a></b>'
+    link: str = '🔥 <b><a href="{url}">{title}</a></b>'
 
 
 class TelegramSettings(BaseModel):
@@ -40,7 +43,7 @@ class Settings(BaseSettings):
     telegram: TelegramSettings
 
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=BASE_DIR / ".env",
         env_prefix="APP__",
         env_nested_delimiter="__",
         case_sensitive=False,
@@ -52,7 +55,7 @@ try:
 except ValidationError as e:
     # print(e)
     if "target_user" in str(e):
-        message = "You need to specify the user ID or username in the environment"
+        message = "You need to specify the user ID or @username in the environment"
     else:
         message = "You need to specify the API ID and API Hash in the environment"
         webbrowser.open("https://my.telegram.org")

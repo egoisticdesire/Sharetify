@@ -18,7 +18,6 @@
    `cd Sharetify && mv .env.example .env`
 4. Заполнить `APP__TELEGRAM__API_ID`, `APP__TELEGRAM__API_HASH` и `APP__TELEGRAM__TARGET_USER` в __.env__:
     - `APP__TELEGRAM__TARGET_USER` это _@username_ или его _ID_, которому нужно отправить трек;
-    - `APP__SYSTEM__LANGUAGE=ru` для получения сообщения на русском языке;
 5. Создать и активировать виртуальное окружение: \
    `python -m venv .venv && source .venv/bin/activate`
 6. Установить зависимости: \
@@ -46,6 +45,10 @@
         - Иначе... _я оставил пустым_
     - _(Опционально)_ Добавить __горячую клавишу__ для максимально быстрого запуска скрипта \
       _(можно и с помощью __Siri__ вызывать, но это не удобно, потому что у меня она каждый раз вылазит на телефоне, а не на ноутбуке и, соответственно, не работает команда; кроме того она постоянно приглушает звук и это тоже не то, что я хотел бы)_
+
+p.s.: 
+- в `config.py` можно указать `language = "ru"` для получения сообщения на русском языке (или `APP__SYSTEM__LANGUAGE=ru` в __.env__);
+- в `config.py` можно указать `link_preview = True` для включения предварительного просмотра ссылки в __Telegram__.
 
 ---
 
@@ -97,6 +100,9 @@
         - Otherwise, leave it empty.
     - (_Optional_) Add a hotkey for quick script execution.
       _(You can also trigger it via __Siri__, but I find that inconvenient because it often activates on my phone instead of my Mac, preventing the command from executing. Additionally, __Siri__ lowers the volume, which is not ideal.)_
+
+p.s.: 
+- in `config.py` you can specify `link_preview = true` to enable pre-viewing the link in __Telegram__.
 
 ---
 
