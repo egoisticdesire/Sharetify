@@ -1,0 +1,17 @@
+[project]
+name = "sharetify"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = [
+    "annotated-types==0.7.0",
+    "pyaes==1.6.1",
+    "pyasn1==0.6.1",
+    "pydantic==2.10.6",
+    "pydantic-core==2.27.2",
+    "pydantic-settings==2.8.1",
+    "python-dotenv==1.0.1",
+    "rsa==4.9",
+    "telethon==1.39.0",
+    "typing-extensions==4.12.2",
+]
